@@ -7,7 +7,7 @@ public class Fruit {
 
     Fruit(int quantity, float weghtOne){
         this.quantity = quantity;
-        this.weght = weghtOne * quantity;
+        this.weght = weghtOne * quantity; // weghtOne будем определять в классах наследниках как константу
     }
 
     public int getQuantity() {
@@ -17,4 +17,5 @@ public class Fruit {
     public float getWeght() {
         return weght;
     }
+
 }

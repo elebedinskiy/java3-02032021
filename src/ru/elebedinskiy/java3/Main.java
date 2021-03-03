@@ -17,17 +17,32 @@ public class Main {
         System.out.println(arrayToList(nums2) + "\n");
 
         System.out.println("Task #3");
-        // ...
 
+        // проверили, что коробки только для фруктов
+        // Box<Integer> integerBox1 = new Box<Integer>(2);
+
+        // создали две коробки
         Box<Apple> boxApple1 = new Box<Apple>();
         Box<Orange> boxOrange1 = new Box<Orange>();
+        Box<Apple> boxApple2 = new Box<Apple>();
+        Box<Orange> boxOrange2 = new Box<Orange>();
+
+        // положили в коробки фрукты несколько раз для
         boxApple1.add(new Apple(1));
         boxOrange1.add(new Orange(1));
         boxApple1.add(new Apple(9));
         boxOrange1.add(new Orange(9));
+        boxApple1.add(new Apple(2));
+        boxOrange1.add(new Orange(2));
+
+        boxApple2.add(new Apple(12));
+        boxOrange2.add(new Orange(10));
+
         System.out.println("Коробка в яблоками | вес: " + boxApple1.getWeight() + ", кол-во: " + boxApple1.getQuantity());
         System.out.println("Коробка в апельсинами | вес: " + boxOrange1.getWeight() + ", кол-во: " + boxOrange1.getQuantity());
 
+        System.out.println(boxApple1.compare(boxApple2)); // true
+        System.out.println(boxOrange1.compare(boxOrange2)); // false
         // ...
         System.out.println("\n");
     }

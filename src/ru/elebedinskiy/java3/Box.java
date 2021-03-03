@@ -4,36 +4,37 @@ import java.util.ArrayList;
 
 public class Box <T extends Fruit> {
 
-    /**
-     * b. Класс Box в который можно складывать фрукты, коробки условно сортируются
-     * по типу фрукта, поэтому в одну коробку нельзя сложить и яблоки, и апельсины;
-     * c. Для хранения фруктов внутри коробки можете использовать ArrayList;
-     */
-
-    private ArrayList<T> fruits = new ArrayList<>();
+    private final ArrayList<T> fruits = new ArrayList<>(); // в коробке будут храниться фрукты в листе
     private int quantity;
     private float weight;
 
     public Box(){
-        this.weight = 0.0f;
-        this.quantity = 0;
+        this.weight = 0.0f; // коробку создаем пустую, с нулевым весом
+        this.quantity = 0; // без фруктов
     }
 
+    // добавляем фрукты в коробку
     public void add (T incomeFruits){
         this.fruits.add(incomeFruits);
+        this.quantity += incomeFruits.getQuantity();
+        this.weight += incomeFruits.getWeght();
     }
 
     public float getWeight(){
-        for (int i = 0; i < fruits.size(); i++) {
-            this.weight += fruits.get(i).getWeght();
-        }
         return weight;
     }
 
     public int getQuantity() {
-        for (int i = 0; i < fruits.size(); i++) {
-            this.quantity += fruits.get(i).getQuantity();
-        }
         return quantity;
+    }
+
+    /*
+    e. Внутри класса коробка сделать метод compare, который позволяет сравнить
+    текущую коробку с той, которую подадут в compare в качестве параметра,
+    true - если их веса равны, false в противном случае(коробки с яблоками
+    мы можем сравнивать с коробками с апельсинами);
+     */
+    public boolean compare (Box compareBox){
+        return Math.abs(this.getWeight() - compareBox.getWeight()) < 0.000001f;
     }
 }
